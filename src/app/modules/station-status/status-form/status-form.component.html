@@ -1,0 +1,105 @@
+<div class="flex-p">
+    <form
+            name="editForm"
+            role="form"
+            novalidate
+            (ngSubmit)="save()"
+            [formGroup]="editForm"
+    >
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{ header }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content fxLayout="column" fxLayoutAlign="center">
+                <mat-form-field appearance="outline">
+                    <input
+                            matInput
+                            type="text"
+                            placeholder="Station Code"
+                            formControlName="code"
+                    />
+                    <button
+                            mat-button
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="clearField('code')"
+                    >
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <input
+                            matInput
+                            type="text"
+                            placeholder="Station Name"
+                            formControlName="name"
+                    />
+                    <button
+                            mat-button
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="clearField('name')"
+                    >
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <input
+                            matInput
+                            type="text"
+                            placeholder="Description"
+                            formControlName="description"
+                    />
+                    <button
+                            mat-button
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="clearField('description')"
+                    >
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <!-- Action Buttons -->
+                <div fxLayout="row" fxLayoutAlign="space-between center" style="margin-top: 20px;">
+                    <!-- Cancel Button -->
+                    <button
+                            mat-raised-button
+                            color="warn"
+                            type="button"
+                            (click)="onCancel()"
+                    >
+                        Cancel
+                    </button>
+
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <!-- Reset Button -->
+                        <button
+                                mat-raised-button
+                                color="accent"
+                                type="button"
+                                (click)="editForm.reset()"
+                        >
+                            Reset All
+                        </button>
+
+                        <!-- Submit Button -->
+                        <button
+                                mat-raised-button
+                                color="primary"
+                                type="submit"
+                                [disabled]="!editForm.valid"
+                        >
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </form>
+</div>

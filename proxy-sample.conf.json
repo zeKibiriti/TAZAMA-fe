@@ -1,0 +1,38 @@
+{
+  "/api/*": {
+    "target": "http://localhost:9093/api",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  },
+  "/api2/*": {
+    "target": "http://localhost:9093/api",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  },
+  "/api_stage/*": {
+    "target": "http://41.59.227.94:9093/api",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  },
+  "/api_prod/*": {
+    "target": "https://mama.moh.go.tz/api",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

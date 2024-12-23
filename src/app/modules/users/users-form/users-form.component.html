@@ -1,0 +1,161 @@
+<div class="flex-p">
+    <form
+            name="editForm"
+            role="form"
+            novalidate
+            (ngSubmit)="save()"
+            [formGroup]="editForm"
+    >
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{ header }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content fxLayout="column" fxLayoutAlign="center">
+                <mat-form-field appearance="outline">
+                    <input
+                            matInput
+                            type="text"
+                            placeholder="First Name"
+                            formControlName="first_name"
+                    />
+                    <button
+                            mat-button
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="clearField('first_name')"
+                    >
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <input
+                            matInput
+                            type="text"
+                            placeholder="Middle Name"
+                            formControlName="middle_name"
+                    />
+                    <button
+                            mat-button
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="clearField('middle_name')"
+                    >
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <input
+                            matInput
+                            type="text"
+                            placeholder="Last Name"
+                            formControlName="last_name"
+                    />
+                    <button
+                            mat-button
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="clearField('last_name')"
+                    >
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <input
+                            matInput
+                            type="text"
+                            placeholder="Email (Username)"
+                            formControlName="email"
+                    />
+                    <button
+                            mat-button
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="clearField('email')"
+                    >
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <input
+                            matInput
+                            type="password"
+                            placeholder="Password"
+                            formControlName="password"
+                    />
+                    <button
+                            mat-button
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="clearField('password')"
+                    >
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Station</mat-label>
+                    <mat-select
+                            formControlName="station"
+                    >
+                        <!--                        (selectionChange)="onRegionChange($event.value)"-->
+                        <mat-option
+                                *ngFor="let option of stations"
+                                [value]="option">{{ option.name }}</mat-option>
+                    </mat-select>
+                    <button
+                            mat-button
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="clearField('station')">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <!-- Action Buttons -->
+                <div fxLayout="row" fxLayoutAlign="space-between center" style="margin-top: 20px;">
+                    <!-- Cancel Button -->
+                    <button
+                            mat-raised-button
+                            color="warn"
+                            type="button"
+                            (click)="onCancel()"
+                    >
+                        Cancel
+                    </button>
+
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <!-- Reset Button -->
+                        <button
+                                mat-raised-button
+                                color="accent"
+                                type="button"
+                                (click)="editForm.reset()"
+                        >
+                            Reset All
+                        </button>
+
+                        <!-- Submit Button -->
+                        <button
+                                mat-raised-button
+                                color="primary"
+                                type="submit"
+                                [disabled]="!editForm.valid"
+                        >
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </form>
+</div>
