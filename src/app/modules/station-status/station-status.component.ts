@@ -9,6 +9,7 @@ import {ConfirmDialogComponent} from '../../utils/confirm-dialog/confirm-dialog.
 import {StatusModel} from "./Station-status.model";
 import {StatusFormComponent} from "./status-form/status-form.component";
 import {StationStatusService} from "./station-status.service";
+import {StationLogsFormComponent} from "../station-logs/station-logs-form/station-logs-form.component";
 
 @Component({
   selector: 'app-station-status',
@@ -61,11 +62,11 @@ export class StationStatusComponent implements OnInit {
     console.log('DATA:', rowData);
     // If no rowData is provided, create a new empty StationsModel
     const data: StatusModel = rowData ?? new StatusModel();
-    const dialogRef = this.dialog.open(StatusFormComponent, {
+    const dialogRef = this.dialog.open(StationLogsFormComponent, {
       width: '800px',
       data: {
         header: rowData ? 'Edit Station Status' : 'Add New Station Status',
-        stationStatus: data, // Pass the station data here (either for editing or new)
+        stationLogs: data, // Pass the station data here (either for editing or new)
       },
     });
 

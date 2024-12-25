@@ -1,0 +1,19 @@
+<div class="permissions-container">
+    <h2>Map Permissions</h2>
+    <form [formGroup]="editForm">
+        <div class="permissions-list">
+            <div *ngFor="let permission of permissions; let i = index" class="permission-item">
+                <mat-checkbox
+                        formControlName="permission_id"
+                        class="permission-checkbox"
+                >
+                    {{ permission.name }}
+                </mat-checkbox>
+            </div>
+        </div>
+        <div class="actions">
+            <button mat-raised-button color="primary" (click)="savePermissions()">Save</button>
+            <button mat-raised-button color="warn" (click)="cancel()">Cancel</button>
+        </div>
+    </form>
+</div>

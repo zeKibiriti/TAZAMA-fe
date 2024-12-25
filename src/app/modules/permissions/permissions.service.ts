@@ -22,7 +22,7 @@ export class PermissionsService {
   /**
    * Get all stations without pagination
    */
-  getAllUnPaged(): Observable<PermissionsModel[]> {
+  reduce(): Observable<PermissionsModel[]> {
     return this.http.get<PermissionsModel[]>(this.resourceUrl);
   }
 

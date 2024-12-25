@@ -57,6 +57,9 @@ import {PermissionsComponent} from "./modules/permissions/permissions.component"
 import {PermissionsFormComponent} from "./modules/permissions/permissions-form/permissions-form.component";
 import { RolesComponent } from './modules/roles/roles.component';
 import { RolesFormComponent } from './modules/roles/roles-form/roles-form.component';
+import { MapPermissionsComponent } from './modules/roles/map-permissions/map-permissions.component';
+import { StationLogsComponent } from './modules/station-logs/station-logs.component';
+import { StationLogsFormComponent } from './modules/station-logs/station-logs-form/station-logs-form.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true,
@@ -91,6 +94,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ConfirmDialogComponent,
     RolesComponent,
     RolesFormComponent,
+    MapPermissionsComponent,
+    StationLogsComponent,
+    StationLogsFormComponent,
   ],
   entryComponents: [StationUpdateComponent], // Only the dialog component needs to be here
   imports: [

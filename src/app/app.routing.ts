@@ -8,6 +8,7 @@ import {StationStatusComponent} from './modules/station-status/station-status.co
 import {UsersComponent} from "./modules/users/users.component";
 import {PermissionsComponent} from "./modules/permissions/permissions.component";
 import {RolesComponent} from "./modules/roles/roles.component";
+import {StationLogsComponent} from "./modules/station-logs/station-logs.component";
 
 export const routes: Routes = [
     {
@@ -23,6 +24,11 @@ export const routes: Routes = [
                 path: 'station-status',
                 component: StationStatusComponent, // Specify the default component here
                 data: { breadcrumb: 'Station Status' },
+            },
+            {
+                path: 'station-logs',
+                component: StationLogsComponent, // Specify the default component here
+                data: { breadcrumb: 'Station Logs' },
             },
             {
                 path: 'users',

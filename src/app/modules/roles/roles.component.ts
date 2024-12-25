@@ -12,6 +12,8 @@ import {ConfirmDialogComponent} from "../../utils/confirm-dialog/confirm-dialog.
 import {RolesModel} from "./Roles.model";
 import {RolesFormComponent} from "./roles-form/roles-form.component";
 import {RolesService} from "./roles.service";
+import {MapPermissionsModel} from "./Map-permissions.model";
+import {MapPermissionsComponent} from "./map-permissions/map-permissions.component";
 
 @Component({
   selector: 'app-roles',
@@ -77,6 +79,28 @@ export class RolesComponent implements OnInit {
         console.log('Dialog result:', result);
         this.loadData();
         // this.loadData(this.per_page, this.size);
+      }
+    });
+  }
+
+  mapPermissions(rowData?: MapPermissionsModel): void {
+    console.log('DATA:', rowData);
+
+    // If no rowData is provided, create a new empty MapPermissionsModel
+    const data: MapPermissionsModel = rowData ?? new MapPermissionsModel();
+
+    const dialogRef = this.dialog.open(MapPermissionsComponent, {
+      width: '800px',
+      data: {
+        header: 'Map Permissions', // Fixed header text
+        role: data, // Pass the permission data here (either for editing or new)
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        console.log('Dialog result:', result);
+        this.loadData(); // Refresh data after dialog closes with a valid result
       }
     });
   }
