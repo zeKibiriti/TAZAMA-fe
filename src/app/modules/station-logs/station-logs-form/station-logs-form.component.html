@@ -1,1 +1,325 @@
-<p>station-logs-form works!</p>
+<div class="flex-p">
+    <form
+            name="editForm"
+            role="form"
+            novalidate
+            (ngSubmit)="save()"
+            [formGroup]="editForm"
+    >
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{ header }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <!-- Two-column layout -->
+                <div fxLayout="row wrap" fxLayoutGap="16px">
+                    <!-- First Row -->
+                    <mat-form-field appearance="outline" fxFlex="48%">
+                        <input
+                                matInput
+                                type="date"
+                                placeholder="Date"
+                                formControlName="date"
+                        />
+                        <button
+                                mat-button
+                                matSuffix
+                                mat-icon-button
+                                aria-label="Clear"
+                                (click)="clearField('date')"
+                        >
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" fxFlex="48%">
+                        <mat-label>Station Status</mat-label>
+                        <mat-select formControlName="station_status_id">
+                            <mat-option *ngFor="let status of stationStatus" [value]="status.id">
+                                {{ status.name }}
+                            </mat-option>
+                        </mat-select>
+                        <button
+                                mat-button
+                                matSuffix
+                                mat-icon-button
+                                aria-label="Clear"
+                                (click)="clearField('station_status_id')"
+                        >
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <!-- Second Row -->
+                    <mat-form-field appearance="outline" fxFlex="48%">
+                        <input
+                                matInput
+                                type="number"
+                                placeholder="Inlet Pressure (psi)"
+                                formControlName="inletPressure"
+                        />
+                        <button
+                                mat-button
+                                matSuffix
+                                mat-icon-button
+                                aria-label="Clear"
+                                (click)="clearField('inletPressure')"
+                        >
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" fxFlex="48%">
+                        <input
+                                matInput
+                                type="number"
+                                placeholder="Outlet Pressure (psi)"
+                                formControlName="outletPressure"
+                        />
+                        <button
+                                mat-button
+                                matSuffix
+                                mat-icon-button
+                                aria-label="Clear"
+                                (click)="clearField('outletPressure')"
+                        >
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <!-- Third Row -->
+                    <mat-form-field appearance="outline" fxFlex="48%">
+                        <input
+                                matInput
+                                type="number"
+                                placeholder="Average Flow Rate (m³/h)"
+                                formControlName="averageFlowRate"
+                        />
+                        <button
+                                mat-button
+                                matSuffix
+                                mat-icon-button
+                                aria-label="Clear"
+                                (click)="clearField('averageFlowRate')"
+                        >
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" fxFlex="48%">
+                        <input
+                                matInput
+                                type="text"
+                                placeholder="Operating Units"
+                                formControlName="operatingUnits"
+                        />
+                        <button
+                                mat-button
+                                matSuffix
+                                mat-icon-button
+                                aria-label="Clear"
+                                (click)="clearField('operatingUnits')"
+                        >
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <!-- Fourth Row -->
+                    <mat-form-field appearance="outline" fxFlex="48%">
+                        <input
+                                matInput
+                                type="text"
+                                placeholder="Units On Standby"
+                                formControlName="unitsOnStandby"
+                        />
+                        <button
+                                mat-button
+                                matSuffix
+                                mat-icon-button
+                                aria-label="Clear"
+                                (click)="clearField('unitsOnStandby')"
+                        >
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" fxFlex="48%">
+                        <input
+                                matInput
+                                type="text"
+                                placeholder="Units On Maintenance"
+                                formControlName="unitsOnMaintenance"
+                        />
+                        <button
+                                mat-button
+                                matSuffix
+                                mat-icon-button
+                                aria-label="Clear"
+                                (click)="clearField('unitsOnMaintenance')"
+                        >
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" fxFlex="48%">
+                        <input
+                                matInput
+                                type="text"
+                                placeholder="Power Source"
+                                formControlName="powerSource"
+                        />
+                        <button
+                                mat-button
+                                matSuffix
+                                mat-icon-button
+                                aria-label="Clear"
+                                (click)="clearField('powerSource')"
+                        >
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" fxFlex="48%">
+                        <input
+                                matInput
+                                type="text"
+                                placeholder="Tank On Delivery"
+                                formControlName="tankOnDelivery"
+                        />
+                        <button
+                                mat-button
+                                matSuffix
+                                mat-icon-button
+                                aria-label="Clear"
+                                (click)="clearField('tankOnDelivery')"
+                        >
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" fxFlex="48%">
+                        <input
+                                matInput
+                                type="number"
+                                placeholder="Pump Over 24Hrs"
+                                formControlName="pumpOver24Hrs"
+                        />
+                        <button
+                                mat-button
+                                matSuffix
+                                mat-icon-button
+                                aria-label="Clear"
+                                (click)="clearField('pumpOver24Hrs')"
+                        >
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" fxFlex="48%">
+                        <input
+                                matInput
+                                type="text"
+                                placeholder="Pumping Days RemainingT4"
+                                formControlName="pumpingDaysRemainingT4"
+                        />
+                        <button
+                                mat-button
+                                matSuffix
+                                mat-icon-button
+                                aria-label="Clear"
+                                (click)="clearField('pumpingDaysRemainingT4')"
+                        >
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <!-- Fifth Row -->
+                    <mat-form-field appearance="outline" fxFlex="48%">
+                        <mat-label>Operator</mat-label>
+                        <mat-select formControlName="operator">
+                            <mat-option *ngFor="let operator of users" [value]="operator.id">
+                                {{ operator.first_name }} {{ operator.last_name }}
+                            </mat-option>
+                        </mat-select>
+<!--                        <button-->
+<!--                                mat-button-->
+<!--                                matSuffix-->
+<!--                                mat-icon-button-->
+<!--                                aria-label="Clear"-->
+<!--                                (click)="clearField('operator')"-->
+<!--                        >-->
+<!--                            <mat-icon>close</mat-icon>-->
+<!--                        </button>-->
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" fxFlex="48%">
+                        <mat-label>Shift Leader</mat-label>
+                        <mat-select formControlName="shiftLeader">
+                            <mat-option *ngFor="let shiftLeader of users" [value]="shiftLeader.id">
+                                {{ shiftLeader.first_name }} {{ shiftLeader.last_name }}
+                            </mat-option>
+                        </mat-select>
+<!--                        <button-->
+<!--                                mat-button-->
+<!--                                matSuffix-->
+<!--                                mat-icon-button-->
+<!--                                aria-label="Clear"-->
+<!--                                (click)="clearField('shiftLeader')"-->
+<!--                        >-->
+<!--                            <mat-icon>close</mat-icon>-->
+<!--                        </button>-->
+                    </mat-form-field>
+
+                    <!-- Remarks -->
+                    <mat-form-field appearance="outline" fxFlex="98%">
+                        <mat-label>Remarks</mat-label>
+                        <textarea
+                                matInput
+                                placeholder="Remarks"
+                                formControlName="remarks"
+                        ></textarea>
+                        <button
+                                mat-button
+                                matSuffix
+                                mat-icon-button
+                                aria-label="Clear"
+                                (click)="clearField('remarks')"
+                        >
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+
+                <!-- Action Buttons -->
+                <div fxLayout="row" fxLayoutAlign="space-between center" style="margin-top: 20px;">
+                    <button
+                            mat-raised-button
+                            color="warn"
+                            type="button"
+                            (click)="onCancel()"
+                    >
+                        Cancel
+                    </button>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <button
+                                mat-raised-button
+                                color="accent"
+                                type="button"
+                                (click)="editForm.reset()"
+                        >
+                            Reset All
+                        </button>
+                        <button
+                                mat-raised-button
+                                color="primary"
+                                type="submit"
+                                [disabled]="!editForm.valid"
+                        >
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </form>
+</div>

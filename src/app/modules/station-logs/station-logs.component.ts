@@ -53,7 +53,7 @@ export class StationLogsComponent implements OnInit {
     // If no rowData is provided, create a new empty StationsModel
     const data: StationLogModel = rowData ?? new StationLogModel();
     const dialogRef = this.dialog.open(StationLogsFormComponent, {
-      width: '800px',
+      width: '50%',
       data: {
         header: rowData ? 'Edit Station Log' : 'Add New Station Log',
         stationLog: data, // Pass the station data here (either for editing or new)

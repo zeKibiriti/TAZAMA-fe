@@ -105,8 +105,11 @@ export class StatusFormComponent implements OnInit {
     this.toastService.showError('Failed to save Station Status!');
   }
 
-  clearField(code: string) {
-
+  clearField(formField: string) {
+    const control = this.editForm.get(formField);
+    if (control) {
+      control.setValue(null); // Clear the field value
+    }
   }
 
 }

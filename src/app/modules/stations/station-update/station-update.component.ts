@@ -146,7 +146,10 @@ export class StationUpdateComponent implements OnInit {
         this.toastService.showError('Failed to save station!');
     }
 
-    clearField(code: string) {
-        
+    clearField(formField: string) {
+        const control = this.editForm.get(formField);
+        if (control) {
+            control.setValue(null); // Clear the field value
+        }
     }
 }

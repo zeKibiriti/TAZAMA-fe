@@ -4,7 +4,7 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="8">
+          <list size="9">
             <item index="0" class="java.lang.String" itemvalue="matcolumndef" />
             <item index="1" class="java.lang.String" itemvalue="mat-header-cell" />
             <item index="2" class="java.lang.String" itemvalue="mat-cell" />
@@ -13,6 +13,7 @@
             <item index="5" class="java.lang.String" itemvalue="mat-row" />
             <item index="6" class="java.lang.String" itemvalue="showfirstlastbuttons" />
             <item index="7" class="java.lang.String" itemvalue="appearance" />
+            <item index="8" class="java.lang.String" itemvalue="fxlayoutwrap" />
           </list>
         </value>
       </option>
